@@ -1,5 +1,62 @@
 import './style.css';
 
+// ==========================================================================
+// 0. CONTROLE AVANÇADO DE RESTAURAÇÃO DE ROLAGEM (LIFECYCLE SEAMLESS)
+// ==========================================================================
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+const getNavigationType = () => {
+  try {
+    const navEntries = performance.getEntriesByType?.('navigation');
+    if (navEntries && navEntries.length > 0) {
+      return navEntries[0].type; // 'navigate', 'reload', 'back_forward'
+    }
+    if (performance.navigation) {
+      if (performance.navigation.type === 1) return 'reload';
+      if (performance.navigation.type === 2) return 'back_forward';
+      return 'navigate';
+    }
+  } catch (e) {
+    /* fallback seguro */
+  }
+  return 'navigate';
+};
+
+const navType = getNavigationType();
+const isReload = navType === 'reload';
+const hasHash = Boolean(window.location.hash && window.location.hash !== '#');
+
+// Função utilitária para aplicar topo sem disparar animação de smooth scroll
+const resetScrollToTopInstant = () => {
+  const root = document.documentElement;
+  const originalScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo(0, 0);
+  root.style.scrollBehavior = originalScrollBehavior;
+};
+
+// Execução imediata no carregamento do script (antes do DOMContentLoaded)
+if (isReload || !hasHash) {
+  if (isReload && hasHash) {
+    // Limpa hash residual de recarregamentos prévios
+    try {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    } catch (e) {
+      /* noop */
+    }
+  }
+  resetScrollToTopInstant();
+}
+
+// Garantir estado manual no descarregamento da página
+window.addEventListener('beforeunload', () => {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Elementos principais de navegação
   const navbar = document.getElementById('navbar');
@@ -10,6 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const iconClose = mobileToggle?.querySelector('.icon-close');
   const navLinks = document.querySelectorAll('.nav-link');
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+  // Posicionamento no DOMContentLoaded
+  if (isReload || !hasHash) {
+    resetScrollToTopInstant();
+  } else if (hasHash && navType !== 'back_forward') {
+    // Navegação direta com âncora intencional na URL
+    const targetEl = document.querySelector(window.location.hash);
+    if (targetEl) {
+      const navbarHeight = navbar?.offsetHeight || 60;
+      const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight + 4;
+      const root = document.documentElement;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, targetPosition);
+      root.style.scrollBehavior = '';
+    }
+  }
 
   // 2. Estado de rolagem do Header com requestAnimationFrame (Sem engasgos / jank)
   let lastScrollY = window.scrollY;
@@ -335,4 +408,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }, { passive: true });
+});
+
+// Verificação final no evento window 'load' (proteção contra saltos causados por assets tardios)
+window.addEventListener('load', () => {
+  if (isReload || !hasHash) {
+    if (window.scrollY > 0) {
+      resetScrollToTopInstant();
+    }
+  }
 });
