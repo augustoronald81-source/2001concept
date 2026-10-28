@@ -11,27 +11,48 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
-  // 2. Estado de rolagem do Header & Scroll Indicator
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
+  // 2. Estado de rolagem do Header com requestAnimationFrame (Sem engasgos / jank)
+  let lastScrollY = window.scrollY;
+  let isTicking = false;
+
+  const updateScrollState = () => {
+    const scrollY = lastScrollY;
     
-    // Header scrolled state
+    // Header scrolled state (apenas alterna classe; sem animar padding/reflows)
     if (scrollY > 30) {
-      navbar?.classList.add('scrolled');
+      if (!navbar?.classList.contains('scrolled')) {
+        navbar?.classList.add('scrolled');
+      }
     } else {
-      navbar?.classList.remove('scrolled');
+      if (navbar?.classList.contains('scrolled')) {
+        navbar?.classList.remove('scrolled');
+      }
     }
 
     // Ocultar indicador de scroll após primeira rolagem
-    if (scrollY > 80) {
-      scrollIndicator?.classList.add('hidden-scroll');
+    if (scrollY > 60) {
+      if (!scrollIndicator?.classList.contains('hidden-scroll')) {
+        scrollIndicator?.classList.add('hidden-scroll');
+      }
     } else {
-      scrollIndicator?.classList.remove('hidden-scroll');
+      if (scrollIndicator?.classList.contains('hidden-scroll')) {
+        scrollIndicator?.classList.remove('hidden-scroll');
+      }
+    }
+
+    isTicking = false;
+  };
+
+  const onScroll = () => {
+    lastScrollY = window.scrollY;
+    if (!isTicking) {
+      window.requestAnimationFrame(updateScrollState);
+      isTicking = true;
     }
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Verificação inicial
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateScrollState(); // Verificação inicial
 
   // 3. Controle do Menu Mobile Drawer
   const openMobileMenu = () => {
@@ -70,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Rolagem suave para links de âncora com compensação da altura do header
+  // 4. Rolagem suave para links de âncora com compensação precisa do header fixo
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
@@ -78,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          const navbarHeight = navbar?.offsetHeight || 65;
-          const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight + 8;
+          const navbarHeight = navbar?.offsetHeight || 60;
+          const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight + 4;
           
           window.scrollTo({
             top: targetPosition,
@@ -90,43 +111,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Scroll Spy (Destacar seção ativa nos menus desktop e mobile)
+  // 5. Scroll Spy Otimizado (apenas atualiza o DOM quando a seção ativa realmente muda)
   const sections = document.querySelectorAll('section[id], article[id]');
-  
+  let currentActiveId = '';
+
   if ('IntersectionObserver' in window && sections.length > 0) {
     const spyObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const currentId = entry.target.getAttribute('id');
-          
-          navLinks.forEach((link) => {
-            const href = link.getAttribute('href')?.replace('#', '');
-            if (href === currentId) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
+          if (currentId && currentId !== currentActiveId) {
+            currentActiveId = currentId;
 
-          mobileNavItems.forEach((link) => {
-            const href = link.getAttribute('href')?.replace('#', '');
-            if (href === currentId) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
+            // Atualiza links desktop
+            navLinks.forEach((link) => {
+              const href = link.getAttribute('href')?.replace('#', '');
+              if (href === currentId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+
+            // Atualiza links mobile se o drawer estiver acessível
+            mobileNavItems.forEach((link) => {
+              const href = link.getAttribute('href')?.replace('#', '');
+              if (href === currentId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
         }
       });
     }, {
-      rootMargin: '-25% 0px -45% 0px',
-      threshold: 0.1
+      rootMargin: '-20% 0px -40% 0px',
+      threshold: 0.05
     });
 
     sections.forEach((sec) => spyObserver.observe(sec));
   }
 
-  // 6. Scroll Reveal Observer (Animação suave de entrada)
+  // 6. Scroll Reveal Observer Otimizado (Animação leve 350ms executada uma única vez)
   const revealElements = document.querySelectorAll('[data-reveal]');
   
   if ('IntersectionObserver' in window) {
@@ -134,12 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
+          revealObserver.unobserve(entry.target); // Libera o observer imediatamente
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -30px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
     });
 
     revealElements.forEach((el) => revealObserver.observe(el));
@@ -148,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. LIGHTBOX INTERATIVO — LIFESTYLE 2001
+  // 7. LIGHTBOX INTERATIVO — LIFESTYLE 2001 (Leve & Acessível)
   // ==========================================================================
   const lifestyleImages = [
     {
-      src: '/assets/lifestyle-estudio.jpg',
+      src: '/assets/lifestyle-estudio-opt.jpg',
       alt: 'Lifestyle 2001 - Campanha Editorial Cinco Modelos em Estúdio',
       caption: 'Campanha Estúdio // Identidade & Presença Coletiva'
     },
@@ -192,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = item.src;
         lightboxImg.alt = item.alt;
         lightboxImg.classList.remove('switching');
-      }, 120);
+      }, 100);
     }
 
     if (lightboxCounter) {
@@ -212,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox?.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     
-    // Focar botão de fechar para controle acessível por teclado
     setTimeout(() => {
       lightboxCloseBtn?.focus();
     }, 50);
@@ -223,7 +249,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox?.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     
-    // Retornar o foco ao elemento que disparou a abertura
     if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
       lastActiveElement.focus();
     }
@@ -271,13 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navegação global por teclado
   document.addEventListener('keydown', (e) => {
-    // Fechar menu mobile se estiver aberto
     if (e.key === 'Escape' && mobileDrawer?.classList.contains('active')) {
       closeMobileMenu();
       return;
     }
 
-    // Comandos de teclado quando o lightbox está ativo
     if (lightbox?.classList.contains('active')) {
       if (e.key === 'Escape') {
         e.preventDefault();
@@ -304,13 +327,10 @@ document.addEventListener('DOMContentLoaded', () => {
     touchEndX = e.changedTouches[0].screenX;
     const diff = touchEndX - touchStartX;
 
-    // Se o arraste horizontal for maior que 45px
-    if (Math.abs(diff) > 45) {
+    if (Math.abs(diff) > 40) {
       if (diff < 0) {
-        // Deslizar para a esquerda -> Próxima imagem
         nextLightboxImage();
       } else {
-        // Deslizar para a direita -> Imagem anterior
         prevLightboxImage();
       }
     }
