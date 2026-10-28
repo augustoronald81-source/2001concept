@@ -3,196 +3,455 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>2001 concept | loja dos crias &bull; Vitrine Digital</title>
-    <meta name="description" content="2001 concept - loja dos crias. Vitrine digital de streetwear premium, peças autorais e coleções exclusivas." />
+    <title>2001 Concept | Streetwear Premium &bull; Vitrine Digital</title>
+    <meta name="description" content="2001 Concept - Vitrine institucional de streetwear premium e urbano. Coleções autorais, identidade de marca e atendimento direto via Instagram e WhatsApp." />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="bg-noir text-white antialiased">
+  <body class="bg-noir text-offwhite antialiased">
     
-    <!-- Header / Navegação Glassmorphism (Mobile-First) -->
+    <!-- Header / Navegação Glassmorphism -->
     <header class="navbar" id="navbar">
       <div class="nav-container">
         
         <!-- Logo Principal da Marca -->
-        <a href="#hero" class="brand-logo">
-          <span class="brand-name font-serif">2001 concept</span>
+        <a href="#hero" class="brand-logo" aria-label="2001 Concept - Página Inicial">
+          <span class="brand-name font-display">2001 concept</span>
           <span class="brand-tag font-mono">loja dos crias</span>
         </a>
 
         <!-- Links de Âncora (Desktop) -->
-        <nav class="nav-links font-sans" id="nav-links">
+        <nav class="nav-links font-sans" id="nav-links" aria-label="Navegação Principal">
           <a href="#street-culture" class="nav-link">Street Culture</a>
           <a href="#casual-premium" class="nav-link">Casual Premium</a>
           <a href="#drop-brasil" class="nav-link highlight">Drop Brasil</a>
+          <a href="#lifestyle" class="nav-link">Lifestyle</a>
+          <a href="#identidade" class="nav-link">Identidade</a>
           <a href="#contato" class="nav-link">Contato</a>
         </nav>
 
         <!-- CTA & Menu Hambúrguer (Mobile) -->
         <div class="nav-actions">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-ig-link font-mono">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span class="desktop-only">INSTAGRAM</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-ig-link font-mono" aria-label="Abrir Instagram Oficial">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="desktop-only">@2001concept</span>
           </a>
 
-          <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Abrir Menu">
-            <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            <svg class="icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Abrir Menu de Navegação" aria-expanded="false" aria-controls="mobile-drawer">
+            <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg class="icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
 
       </div>
 
       <!-- Menu Mobile Drawer -->
-      <div id="mobile-drawer" class="mobile-drawer">
+      <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
         <nav class="mobile-nav-links font-sans">
           <a href="#street-culture" class="mobile-nav-item">Street Culture</a>
           <a href="#casual-premium" class="mobile-nav-item">Casual Premium</a>
           <a href="#drop-brasil" class="mobile-nav-item highlight">Drop Brasil</a>
+          <a href="#lifestyle" class="mobile-nav-item">Lifestyle</a>
+          <a href="#identidade" class="mobile-nav-item">Identidade</a>
           <a href="#contato" class="mobile-nav-item">Contato</a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mobile-nav-ig font-mono">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
-            <span>Ver Instagram Oficial</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+            <span>Instagram @2001concept</span>
           </a>
         </nav>
       </div>
     </header>
 
     <main>
-      <!-- 1. HERO / PRIMEIRA DOBRA (Otimizada para Mobile Bio Instagram) -->
-      <section id="hero" class="hero-section hero-fullwidth">
+      <!-- 1. HERO / PRIMEIRA SEÇÃO -->
+      <section id="hero" class="hero-section">
         <div class="hero-image-box">
-          <img src="/assets/01-capa.jpg.jpg" alt="2001 concept - Campanha Editorial Capa" class="hero-img" fetchpriority="high" decoding="async" />
+          <img src="/assets/01-capa.jpg.jpg" alt="2001 Concept - Campanha Streetwear Capa" class="hero-img" fetchpriority="high" decoding="async" />
           <div class="hero-overlay"></div>
         </div>
 
         <div class="hero-content">
-          <div class="brand-hero-group hero-animate-1">
-            <h1 class="hero-title font-serif">2001 concept</h1>
-            <span class="hero-subtitle font-mono">loja dos crias</span>
+          <div class="hero-badge font-mono hero-animate-1">
+            <span class="badge-dot"></span>
+            <span>VITRINE INSTITUCIONAL &bull; 2001 CONCEPT</span>
           </div>
 
-          <div class="hero-actions hero-animate-2">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-hero-ig font-sans">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              <span>Ver Instagram</span>
+          <div class="brand-hero-group hero-animate-2">
+            <h1 class="hero-title font-display">2001 concept</h1>
+            <p class="hero-subtitle font-mono">loja dos crias &bull; streetwear autêntico</p>
+          </div>
+
+          <div class="hero-actions hero-animate-3">
+            <a href="#colecoes" class="btn-hero-primary font-sans">
+              <span>Explorar coleções</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary font-mono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>Instagram</span>
             </a>
           </div>
         </div>
 
-        <!-- Indicador de Scroll Minimalista -->
-        <div id="scroll-indicator" class="scroll-indicator">
-          <span class="scroll-text font-mono">ROLE PARA VER MAIS</span>
-          <div class="scroll-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        <!-- Indicador de Scroll -->
+        <a href="#colecoes" id="scroll-indicator" class="scroll-indicator font-mono" aria-label="Rolar para as Coleções">
+          <span class="scroll-text">ROLE PARA EXPLORAR</span>
+          <div class="scroll-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </div>
+        </a>
+      </section>
+
+      <!-- TICKER / MARQUEE STREETWEAR -->
+      <div class="brand-ticker" aria-hidden="true">
+        <div class="ticker-track font-mono">
+          <span>2001 CONCEPT</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>STREET CULTURE</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>DROP BRASIL</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>LIFESTYLE 2001</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>NÃO É SÓ ROUPA. É IDENTIDADE.</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>CASUAL PREMIUM</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>LOJA DOS CRIAS</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>2001 CONCEPT</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>STREET CULTURE</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>DROP BRASIL</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>LIFESTYLE 2001</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>NÃO É SÓ ROUPA. É IDENTIDADE.</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>CASUAL PREMIUM</span>
+          <span class="ticker-sep">&bull;</span>
+          <span>LOJA DOS CRIAS</span>
+          <span class="ticker-sep">&bull;</span>
+        </div>
+      </div>
+
+      <!-- 2. COLEÇÕES (COMPOSIÇÕES EDITORIAIS) -->
+      <section id="colecoes" class="collections-section">
+        <div class="section-container">
+          
+          <div class="collections-intro" data-reveal>
+            <span class="section-tag font-mono">// CURADORIA EXCLUSIVA</span>
+            <h2 class="section-heading font-display">COLEÇÕES EM VITRINE</h2>
+            <p class="section-subheading font-sans">
+              Explore os editoriais da 2001 Concept. Fotografias oficiais de cada seleção.
+            </p>
+          </div>
+
+          <!-- COLEÇÃO 01: STREET CULTURE -->
+          <article id="street-culture" class="collection-group street-culture-group" data-reveal>
+            <div class="collection-header">
+              <div class="collection-meta">
+                <span class="collection-number font-mono">COLEÇÃO 01 &bull; ESSENTIALS</span>
+                <span class="collection-status font-mono">LOOKBOOK OFICIAL</span>
+              </div>
+              <h3 class="collection-title font-display">Street Culture</h3>
+              <p class="collection-subtitle font-sans">“Peças com atitude, proporção refinada e presença urbana.”</p>
+            </div>
+
+            <!-- Mosaico Editorial Street Culture -->
+            <div class="mosaic-gallery">
+              <div class="mosaic-item mosaic-top-main">
+                <img src="/assets/street-01.jpg.jpg" alt="Street Culture - Look Principal Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                <div class="mosaic-badge font-mono">LOOK 01 // PRINCIPAL</div>
+              </div>
+              
+              <div class="mosaic-bottom-row">
+                <div class="mosaic-item mosaic-sub">
+                  <img src="/assets/street-02.jpg.jpg" alt="Street Culture - Look 02 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 02 // COMPOSIÇÃO</div>
+                </div>
+                <div class="mosaic-item mosaic-sub">
+                  <img src="/assets/street-03.jpg.jpg" alt="Street Culture - Look 03 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 03 // DETALHE</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection-footer-action">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-collection-ig font-sans">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+                <span>Ver Street Culture no Instagram</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- COLEÇÃO 02: CASUAL PREMIUM -->
+          <article id="casual-premium" class="collection-group casual-premium-group" data-reveal>
+            <div class="collection-header">
+              <div class="collection-meta">
+                <span class="collection-number font-mono">COLEÇÃO 02 &bull; CONTEMPORÂNEO</span>
+                <span class="collection-status font-mono">LOOKBOOK OFICIAL</span>
+              </div>
+              <h3 class="collection-title font-display">Casual Premium</h3>
+              <p class="collection-subtitle font-sans">“Visual alinhado, elegância minimalista e versatilidade em cada momento.”</p>
+            </div>
+
+            <!-- Mosaico Editorial Casual Premium -->
+            <div class="mosaic-gallery">
+              <div class="mosaic-item mosaic-top-main">
+                <img src="/assets/casual-01.jpg.jpg" alt="Casual Premium - Look Principal Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                <div class="mosaic-badge font-mono">LOOK 01 // PRINCIPAL</div>
+              </div>
+              
+              <div class="mosaic-bottom-row">
+                <div class="mosaic-item mosaic-sub">
+                  <img src="/assets/casual-02.jpg.jpg" alt="Casual Premium - Look 02 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 02 // DETALHE</div>
+                </div>
+                <div class="mosaic-item mosaic-sub">
+                  <img src="/assets/casual-03.jpg.jpg" alt="Casual Premium - Look 03 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 03 // COMPOSIÇÃO</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection-footer-action">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-collection-ig font-sans">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+                <span>Ver Casual Premium no Instagram</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- COLEÇÃO 03: DROP BRASIL (EDIÇÃO ESPECIAL) -->
+          <article id="drop-brasil" class="collection-group drop-brasil-special" data-reveal>
+            <div class="special-glow-effect" aria-hidden="true"></div>
+            
+            <div class="collection-header special-header">
+              <div class="collection-meta">
+                <span class="collection-number special-number font-mono">COLEÇÃO 03 &bull; EDIÇÃO ESPECIAL</span>
+                <span class="special-badge font-mono">DROP EXCLUSIVO</span>
+              </div>
+              <h3 class="collection-title special-title font-display">Drop Brasil</h3>
+              <p class="collection-subtitle special-subtitle font-sans">
+                “Uma seleção autoral inspirada na energia, cores e identidade da cultura urbana brasileira.”
+              </p>
+            </div>
+
+            <!-- Mosaico Editorial Especial Drop Brasil -->
+            <div class="mosaic-gallery drop-special-mosaic">
+              <div class="mosaic-item mosaic-top-main special-top-card">
+                <img src="/assets/drop-01.jpg.jpg" alt="Drop Brasil - Destaque Especial Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                <div class="mosaic-badge special-mosaic-badge font-mono">DESTAQUE // DROP BRASIL</div>
+              </div>
+              
+              <div class="mosaic-bottom-row">
+                <div class="mosaic-item mosaic-sub special-sub-card">
+                  <img src="/assets/drop-02.jpg.jpg" alt="Drop Brasil - Look 02 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 02</div>
+                </div>
+                <div class="mosaic-item mosaic-sub special-sub-card">
+                  <img src="/assets/drop-03.jpg.jpg" alt="Drop Brasil - Look 03 Editorial" class="mosaic-img" loading="lazy" decoding="async" />
+                  <div class="mosaic-badge font-mono">LOOK 03</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection-footer-action">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-collection-ig special-btn font-sans">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+                <span>Conhecer Drop Brasil no Instagram</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3. LIFESTYLE 2001 (CAMPANHA EDITORIAL STREETWEAR) -->
+      <section id="lifestyle" class="lifestyle-section" data-reveal>
+        <div class="section-container">
+          
+          <div class="lifestyle-header">
+            <span class="section-tag font-mono">// CAMPANHA EDITORIAL</span>
+            <h2 class="lifestyle-title font-display">LIFESTYLE 2001.</h2>
+            <p class="lifestyle-subtitle font-sans">“O estilo vai além do que você veste.”</p>
+          </div>
+
+          <!-- Galeria Editorial Assimétrica com 3 Fotografias Reais -->
+          <div class="lifestyle-gallery">
+            
+            <!-- Fotografia 1: Maior Destaque — Cinco Modelos em Estúdio -->
+            <div class="lifestyle-card lifestyle-card-main" 
+                 data-lightbox-index="0" 
+                 role="button" 
+                 tabindex="0" 
+                 aria-label="Ampliar fotografia: Cinco modelos em estúdio com fundo preto">
+              <div class="lifestyle-img-wrap">
+                <img src="/assets/lifestyle-estudio.jpg" 
+                     alt="Lifestyle 2001 - Campanha Editorial Cinco Modelos em Estúdio" 
+                     class="lifestyle-img img-estudio" 
+                     loading="lazy" 
+                     decoding="async" />
+                <div class="lifestyle-card-overlay">
+                  <span class="lifestyle-expand-hint font-mono">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                    <span>AMPLIAR FOTO</span>
+                  </span>
+                </div>
+              </div>
+              <div class="lifestyle-meta">
+                <div class="lifestyle-meta-left">
+                  <span class="lifestyle-label font-mono">EDITORIAL 01 // ESTÚDIO</span>
+                  <span class="lifestyle-caption font-sans">Campanha Oficial &bull; Identidade &amp; Presença Coletiva</span>
+                </div>
+                <div class="lifestyle-meta-badge font-mono">DESTAQUE</div>
+              </div>
+            </div>
+
+            <!-- Grupo Secundário: Duas Fotografias Complementares -->
+            <div class="lifestyle-sub-group">
+              
+              <!-- Fotografia 2: Três Modelos em Frente à Loja -->
+              <div class="lifestyle-card lifestyle-card-sub" 
+                   data-lightbox-index="1" 
+                   role="button" 
+                   tabindex="0" 
+                   aria-label="Ampliar fotografia: Três modelos em frente à loja 2001 Concept">
+                <div class="lifestyle-img-wrap">
+                  <img src="/assets/lifestyle-loja.jpg" 
+                       alt="Lifestyle 2001 - Três Modelos em Frente à Loja" 
+                       class="lifestyle-img img-loja" 
+                       loading="lazy" 
+                       decoding="async" />
+                  <div class="lifestyle-card-overlay">
+                    <span class="lifestyle-expand-hint font-mono">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>AMPLIAR FOTO</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="lifestyle-meta">
+                  <span class="lifestyle-label font-mono">EDITORIAL 02 // LOJA</span>
+                  <span class="lifestyle-caption font-sans">Cultura Urbana &bull; Conexão Real com as Ruas</span>
+                </div>
+              </div>
+
+              <!-- Fotografia 3: Looks Coordenados em Ambiente Noturno -->
+              <div class="lifestyle-card lifestyle-card-sub" 
+                   data-lightbox-index="2" 
+                   role="button" 
+                   tabindex="0" 
+                   aria-label="Ampliar fotografia: Três modelos com looks coordenados em ambiente noturno">
+                <div class="lifestyle-img-wrap">
+                  <img src="/assets/lifestyle-noturno.jpg" 
+                       alt="Lifestyle 2001 - Três Modelos com Looks Coordenados em Ambiente Noturno" 
+                       class="lifestyle-img img-noturno" 
+                       loading="lazy" 
+                       decoding="async" />
+                  <div class="lifestyle-card-overlay">
+                    <span class="lifestyle-expand-hint font-mono">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>AMPLIAR FOTO</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="lifestyle-meta">
+                  <span class="lifestyle-label font-mono">EDITORIAL 03 // NOTURNO</span>
+                  <span class="lifestyle-caption font-sans">Movimento &amp; Atitude Noturna</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Texto Complementar & CTA Oficial -->
+          <div class="lifestyle-footer">
+            <p class="lifestyle-phrase font-serif">“Autenticidade em cada detalhe. Atitude em cada escolha.”</p>
+            
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-lifestyle-ig font-sans">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>ACOMPANHE NOSSO ESTILO</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. IDENTIDADE DA MARCA (MANIFESTO 2001) -->
+      <section id="identidade" class="identity-section" data-reveal>
+        <div class="section-container">
+          <div class="identity-content-wrapper">
+            
+            <div class="identity-header">
+              <span class="section-tag font-mono">// MANIFESTO 2001</span>
+              <h2 class="identity-statement font-display">
+                NÃO É SÓ ROUPA.<br />
+                <span class="text-accent">É IDENTIDADE.</span>
+              </h2>
+            </div>
+
+            <p class="identity-description font-sans">
+              O streetwear autêntico une a sofisticação da moda contemporânea à força da cultura urbana. Cada corte, proporção e detalhe expressa atitude, originalidade e presença marcante no dia a dia.
+            </p>
+
+            <!-- Pilares Visuais -->
+            <div class="identity-pillars-grid">
+              <div class="identity-pillar-card">
+                <span class="pillar-number font-mono">01</span>
+                <h3 class="pillar-title font-sans">Atitude Urbana</h3>
+                <p class="pillar-desc font-sans">Estética autêntica e conectada ao ritmo e à personalidade das ruas.</p>
+              </div>
+
+              <div class="identity-pillar-card">
+                <span class="pillar-number font-mono">02</span>
+                <h3 class="pillar-title font-sans">Corte &amp; Presença</h3>
+                <p class="pillar-desc font-sans">Modelagens planejadas para garantir caimento impecável e visual expressivo.</p>
+              </div>
+
+              <div class="identity-pillar-card">
+                <span class="pillar-number font-mono">03</span>
+                <h3 class="pillar-title font-sans">Curadoria Autoral</h3>
+                <p class="pillar-desc font-sans">Drops e seleções pensadas para quem valoriza exclusividade e identidade.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- 2. SEÇÕES DE COLEÇÃO (MOSAICO EDITORIAL MOBILE-FIRST) -->
-      <section id="colecoes" class="collections-section">
-        <div class="section-container">
-
-          <!-- 01. STREET CULTURE -->
-          <article id="street-culture" class="collection-group street-culture-group" data-reveal>
-            <div class="collection-header">
-              <span class="collection-number font-mono">COLEÇÃO 01</span>
-              <h2 class="collection-title">Street Culture</h2>
-              <p class="collection-subtitle">“Peças com atitude e presença.”</p>
-            </div>
-
-            <!-- Mosaico Editorial -->
-            <div class="mosaic-gallery">
-              <div class="mosaic-item mosaic-top-main">
-                <img src="/assets/street-01.jpg.jpg" alt="Street Culture Look Principal" class="mosaic-img" loading="lazy" decoding="async" />
-              </div>
-              
-              <div class="mosaic-bottom-row">
-                <div class="mosaic-item mosaic-sub">
-                  <img src="/assets/street-02.jpg.jpg" alt="Street Culture Look 2" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-                <div class="mosaic-item mosaic-sub">
-                  <img src="/assets/street-03.jpg.jpg" alt="Street Culture Look 3" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02. CASUAL PREMIUM -->
-          <article id="casual-premium" class="collection-group casual-premium-group" data-reveal>
-            <div class="collection-header">
-              <span class="collection-number font-mono">COLEÇÃO 02</span>
-              <h2 class="collection-title">Casual Premium</h2>
-              <p class="collection-subtitle">“Visual alinhado para todos os momentos.”</p>
-            </div>
-
-            <!-- Mosaico Editorial -->
-            <div class="mosaic-gallery">
-              <div class="mosaic-item mosaic-top-main">
-                <img src="/assets/casual-01.jpg.jpg" alt="Casual Premium Look Principal" class="mosaic-img" loading="lazy" decoding="async" />
-              </div>
-              
-              <div class="mosaic-bottom-row">
-                <div class="mosaic-item mosaic-sub">
-                  <img src="/assets/casual-02.jpg.jpg" alt="Casual Premium Look 2" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-                <div class="mosaic-item mosaic-sub">
-                  <img src="/assets/casual-03.jpg.jpg" alt="Casual Premium Look 3" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03. DROP BRASIL (DESTAQUE ESPECIAL MAIS MARCANTE) -->
-          <article id="drop-brasil" class="collection-group drop-brasil-special" data-reveal>
-            <div class="collection-header special-header">
-              <span class="collection-number special-number font-mono">COLEÇÃO 03 &bull; EDIÇÃO ESPECIAL</span>
-              <h2 class="collection-title special-title">Drop Brasil</h2>
-              <p class="collection-subtitle special-subtitle">
-                “Uma seleção inspirada no Brasil.”
-              </p>
-            </div>
-
-            <!-- Mosaico Editorial Especial -->
-            <div class="mosaic-gallery drop-special-mosaic">
-              <div class="mosaic-item mosaic-top-main special-top-card">
-                <img src="/assets/drop-01.jpg.jpg" alt="Drop Brasil Look Principal Destaque" class="mosaic-img" loading="lazy" decoding="async" />
-              </div>
-              
-              <div class="mosaic-bottom-row">
-                <div class="mosaic-item mosaic-sub special-sub-card">
-                  <img src="/assets/drop-02.jpg.jpg" alt="Drop Brasil Look 2" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-                <div class="mosaic-item mosaic-sub special-sub-card">
-                  <img src="/assets/drop-03.jpg.jpg" alt="Drop Brasil Look 3" class="mosaic-img" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- 3. INFORMAÇÕES DA LOJA & CONTATO -->
+      <!-- 5. CONTATO & CANAIS OFICIAIS DA LOJA -->
       <section id="contato" class="brand-info-section" data-reveal>
         <div class="section-container">
           <div class="info-card">
             
-            <h2 class="info-main-quote">“Streetwear premium, peças autorais e atendimento direto.”</h2>
+            <div class="info-badge font-mono">// CANAIS OFICIAIS</div>
+
+            <h2 class="info-main-quote font-serif">“Streetwear premium, peças autorais e atendimento direto.”</h2>
             
+            <p class="info-intro-text font-sans">
+              Acompanhe novos lançamentos pelo Instagram ou fale com nosso time pelo WhatsApp para verificar disponibilidade de peças.
+            </p>
+
             <div class="info-details-box font-sans">
               <div class="info-detail-row">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <span>Segunda a sábado &bull; 08h às 19h</span>
               </div>
               
               <div class="info-detail-row">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <span>Rua Manoel José da Costa Filho, 131 - Joaquim Nabuco</span>
               </div>
             </div>
@@ -200,24 +459,26 @@
             <div class="info-actions">
               <!-- Instagram Card -->
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn-info-action instagram font-sans">
-                <div class="action-icon">
+                <div class="action-icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </div>
                 <div class="btn-txt-group">
                   <span class="btn-main-txt">Instagram Oficial</span>
-                  <span class="btn-sub-txt">@2001concept</span>
+                  <span class="btn-sub-txt">@2001concept &bull; Siga novidades</span>
                 </div>
+                <svg class="action-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
 
-              <!-- WhatsApp Provisório Elegante / Preparado -->
+              <!-- WhatsApp Card -->
               <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%202001%20concept" target="_blank" rel="noopener noreferrer" id="whatsapp-btn-placeholder" class="btn-info-action whatsapp font-sans" title="Clique para abrir WhatsApp">
-                <div class="action-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <div class="action-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                 </div>
                 <div class="btn-txt-group">
                   <span class="btn-main-txt">Chamar no WhatsApp</span>
-                  <span class="btn-sub-txt">Atendimento Direct</span>
+                  <span class="btn-sub-txt">Atendimento Direct &bull; Tire dúvidas</span>
                 </div>
+                <svg class="action-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
             </div>
 
@@ -226,19 +487,27 @@
       </section>
     </main>
 
-    <!-- FOOTER MINIMALISTA & LEVE (ESTILO ANA MELO) -->
+    <!-- FOOTER MINIMALISTA & EDITORIAL -->
     <footer class="footer">
       <div class="footer-divider"></div>
       <div class="footer-container">
         
         <!-- Nome & Assinatura da Marca -->
         <div class="footer-brand">
-          <span class="footer-brand-name font-serif">2001 concept</span>
-          <span class="footer-brand-tag font-mono">loja dos crias</span>
+          <span class="footer-brand-name font-display">2001 concept</span>
+          <span class="footer-brand-tag font-mono">loja dos crias &bull; streetwear original</span>
         </div>
 
         <!-- Links Principais -->
         <div class="footer-links font-sans">
+          <a href="#hero" class="footer-link">Início</a>
+          <span class="footer-bullet">&bull;</span>
+          <a href="#colecoes" class="footer-link">Coleções</a>
+          <span class="footer-bullet">&bull;</span>
+          <a href="#lifestyle" class="footer-link">Lifestyle</a>
+          <span class="footer-bullet">&bull;</span>
+          <a href="#identidade" class="footer-link">Identidade</a>
+          <span class="footer-bullet">&bull;</span>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           <span class="footer-bullet">&bull;</span>
           <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%202001%20concept" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp</a>
@@ -246,11 +515,59 @@
 
         <!-- Rodapé Final -->
         <div class="footer-copy font-mono">
-          &copy; 2026 2001 concept &bull; Vitrine Digital
+          &copy; 2026 2001 Concept &bull; Vitrine Institucional &bull; Todos os direitos reservados.
         </div>
 
       </div>
     </footer>
+
+    <!-- MODAL LIGHTBOX INTERATIVO (LIFESTYLE 2001) -->
+    <div id="lifestyle-lightbox" class="lifestyle-lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de Fotografia Lifestyle" aria-hidden="true" tabindex="-1">
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      
+      <div class="lightbox-dialog" role="document">
+        <!-- Botão Fechar -->
+        <button type="button" class="lightbox-btn lightbox-btn-close" id="lightbox-close-btn" aria-label="Fechar visualização ampliada (Esc)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <!-- Botão Anterior -->
+        <button type="button" class="lightbox-btn lightbox-btn-prev" id="lightbox-prev-btn" aria-label="Fotografia anterior (Seta esquerda)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <!-- Área da Imagem & Legenda -->
+        <div class="lightbox-figure-container">
+          <div class="lightbox-img-wrapper">
+            <img id="lightbox-img" src="/assets/lifestyle-estudio.jpg" alt="Lifestyle 2001" class="lightbox-img" />
+          </div>
+          
+          <div class="lightbox-meta-bar font-sans">
+            <span id="lightbox-counter" class="lightbox-counter font-mono" aria-live="polite">1 / 3</span>
+            <span id="lightbox-caption" class="lightbox-caption"></span>
+          </div>
+        </div>
+
+        <!-- Botão Próximo -->
+        <button type="button" class="lightbox-btn lightbox-btn-next" id="lightbox-next-btn" aria-label="Próxima fotografia (Seta direita)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE DE WHATSAPP -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%202001%20concept" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       id="whatsapp-float" 
+       class="whatsapp-float" 
+       aria-label="Fale conosco no WhatsApp">
+      <div class="whatsapp-float-pulse" aria-hidden="true"></div>
+      <div class="whatsapp-float-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        <span class="whatsapp-float-label font-sans">Atendimento WhatsApp</span>
+      </div>
+    </a>
 
     <script type="module" src="/src/main.js"></script>
   </body>
